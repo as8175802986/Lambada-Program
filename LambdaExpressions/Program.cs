@@ -12,7 +12,7 @@ namespace LambdaExpressions
             // UC 1
             List<Persons> listPersonInCity = new List<Persons>();
             AddRecords(listPersonInCity);
-            //RetrivingTopTwoRecords_ForAgeIs_LessThanSixty(listPersonInCity);
+            RetrivingTopTwoRecords_ForAgeIs_LessThanSixty(listPersonInCity);
             //CheckingForTeenage(listPersonInCity);
         }
         //UC 1
@@ -29,6 +29,17 @@ namespace LambdaExpressions
             listPersonInCity.Add(new Persons("1963584625", "Parth", "xyz,lucknow", 38));
             listPersonInCity.Add(new Persons("3265795431", "Rakesh", "sector 52,noida", 46));
         }
-       
+        //UC2
+        private static void RetrivingTopTwoRecords_ForAgeIs_LessThanSixty(List<Persons> listPersonsInCity)
+        {
+            foreach (Persons persons in listPersonsInCity.FindAll(e => (e.Age < 60)).Take(5).ToList())
+            {
+                Console.WriteLine("Name : " + persons.Name + " \t]tAge: " + persons.Age);
+            }
+
+
+        }
+
+
     }
 }
