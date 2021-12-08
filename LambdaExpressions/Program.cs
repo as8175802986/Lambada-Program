@@ -15,6 +15,7 @@ namespace LambdaExpressions
             RetrivingTopTwoRecords_ForAgeIs_LessThanSixty(listPersonInCity);
             CheckingForTeenage(listPersonInCity);
             Retrieve_AverageAge(listPersonInCity);
+            CheckingFor_ParticularName(listPersonInCity);
         }
         //UC 1
         private static void AddRecords(List<Persons> listPersonInCity)
@@ -58,6 +59,17 @@ namespace LambdaExpressions
         {
             var avgAge = listPersonsInCity.Average(e => e.Age);
             Console.WriteLine("Average Age is : {0}", avgAge);
+        }
+
+        //Uc 5
+        public static void CheckingFor_ParticularName(List<Persons> listPersonsInCity)
+        {
+            Console.WriteLine("Enter the Name to check in the list :");
+            string name = Console.ReadLine();
+            if (listPersonsInCity.Exists(e => e.Name == name))
+                Console.WriteLine("The Name {0} is Present in the list", name);
+            else
+                Console.WriteLine("The Name {0} is not Present in the list", name);
         }
 
 
